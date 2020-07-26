@@ -1,0 +1,5 @@
+steps:
+  - id: detectSecrets
+    waitFor: ['-']
+    name: gcr.io/${PROJECT_ID}/detect-secrets-docker-ci:latest
+    dir: '/opt'

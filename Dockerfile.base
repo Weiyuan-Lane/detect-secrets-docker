@@ -1,0 +1,9 @@
+FROM alpine
+
+WORKDIR /opt
+
+COPY create-basefiles /usr/bin/
+COPY update-basefiles /usr/bin/
+
+RUN apk add --no-cache py3-pip git &&\
+    pip install detect-secrets

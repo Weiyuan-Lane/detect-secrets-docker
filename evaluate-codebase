@@ -1,0 +1,3 @@
+#!/bin/sh
+
+git diff --name-only HEAD `cat .secrets.lasthash`| grep -v .secrets.baseline | grep -v .secrets.lasthash | xargs detect-secrets-hook

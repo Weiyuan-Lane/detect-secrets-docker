@@ -1,0 +1,4 @@
+#!/bin/sh
+
+detect-secrets scan --update .secrets.baseline
+git rev-parse HEAD | cat  > .secrets.lasthash

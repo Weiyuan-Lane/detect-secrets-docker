@@ -1,0 +1,10 @@
+FROM alpine
+
+WORKDIR /opt
+
+COPY evaluate-codebase /usr/bin/
+
+RUN apk add --no-cache py3-pip git &&\
+    pip install detect-secrets
+
+ENTRYPOINT [ "evaluate-codebase" ]
