@@ -48,6 +48,11 @@ docker build -f Dockerfile.ci -t detect-secrets-docker-ci:latest .
 
 In your CI, run the docker image with your code base mounted to the `/opt` directory. If new secrets are found between the latest commit towards the last time the baseline files are committed, a non-zero code will be returned, and should cause your build pipeline to fail
 
+
+### Examples
+
+- [Example repository for Google Cloud Platform Cloud Build, with cloudbuild.yaml](https://github.com/Weiyuan-Lane/detect-secrets-docker-cloudbuild)
+
 ## Checking it locally?
 
 If you want to run it locally, run the docker image build command under [here](https://github.com/Weiyuan-Lane/detect-secrets-docker#running-this-in-your-own-ci), then run the following command at the root directory of the repository that you are validating:
