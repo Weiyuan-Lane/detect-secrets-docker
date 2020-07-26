@@ -39,7 +39,7 @@ In the case of new files with secret-like values, we want to whitelist those fil
 
 ## Running this in your own CI pipelines
 
-If your CI uses docker images, you can build a custom image for your CI:
+If your CI uses docker images, you can build a custom image for your CI (amend the tag according to your image repository requirements):
 
 ```
 docker build -f Dockerfile.ci -t detect-secrets-docker-ci:latest .
