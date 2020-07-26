@@ -1,7 +1,8 @@
 
 # detect-secrets-docker
 
-This repository contains instructions to preparing your repository for being scanned for secrets
+This repository contains instructions to preparing your repository for being scanned for secrets.
+Credits to Yelp for their awesome [detect-secrets](https://github.com/Yelp/detect-secrets) repository for building this.
 
 It also provides details on how you can include it into a CI tool like Cloud Build, using docker images
 
