@@ -17,7 +17,7 @@ To ensure that files like `package-lock.json` where the hash values are "secret-
 docker build -f Dockerfile.base -t detect-secrets-docker .
 ```
 
-4. Run the following command at the directory of your targetted repository, for generating the baseline file
+4. Run the following command at the directory of your targetted repository, for generating the baseline files
 
 ```
 docker run --name detect-secrets-docker -v $(pwd):/opt --entrypoint "create-basefiles" detect-secrets-docker
@@ -37,7 +37,7 @@ docker rm -f detect-secrets-docker
 In the case of new files with secret-like values, we want to whitelist those files too. Commit those affected files first, then run the following:
 
 
-## Running this in your own CI
+## Running this in your own CI pipelines
 
 If your CI uses docker images, you can build a custom image for your CI:
 
@@ -46,3 +46,12 @@ docker build -f Dockerfile.ci -t detect-secrets-docker-ci:latest .
 ```
 
 In your CI, run the docker image with your code base mounted to the `/opt` directory. If new secrets are found between the latest commit towards the last time the baseline files are committed, a non-zero code will be returned, and should cause your build pipeline to fail
+
+## Checking it locally?
+
+If you want to run it locally, run the docker image build command under [here](https://github.com/Weiyuan-Lane/detect-secrets-docker#running-this-in-your-own-ci), then run the following command at the root directory of the repository that you are validating:
+
+```
+docker run --name detect-secrets-docker -v $(pwd):/opt --entrypoint "update-basefiles" detect-secrets-docker
+```
+
