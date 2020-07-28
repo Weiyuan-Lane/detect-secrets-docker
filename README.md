@@ -8,7 +8,7 @@ It also provides details on how you can include it into a CI tool like Cloud Bui
 
 ## Add the baseline file to whitelist repository's current content
 
-To ensure that files like `package-lock.json` where the hash values are "secret-like", do not get mistaken as a secret, baseline filescan be created to "whitelist" such content. Follow the following instructions to create the baseline file:
+To ensure that files like `package-lock.json` where the hash values are "secret-like", do not get mistaken as containing secrets, baseline filescan be created to "whitelist" such content. Follow the following instructions to create the baseline file:
 
 1. Install docker
 2. Clone this repository
