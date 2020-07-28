@@ -37,6 +37,10 @@ docker rm -f detect-secrets-docker
 
 In the case of new files with secret-like values, we want to whitelist those files too. Commit those affected files first, then run the following:
 
+```
+docker run --name detect-secrets-docker -v $(pwd):/opt --entrypoint "update-basefiles" detect-secrets-docker
+```
+
 
 ## Running this in your own CI pipelines
 
@@ -58,6 +62,6 @@ In your CI, run the docker image with your code base mounted to the `/opt` direc
 If you want to run it locally, run the docker image build command under [here](https://github.com/Weiyuan-Lane/detect-secrets-docker#running-this-in-your-own-ci), then run the following command at the root directory of the repository that you are validating:
 
 ```
-docker run --name detect-secrets-docker -v $(pwd):/opt --entrypoint "update-basefiles" detect-secrets-docker
+docker run --name detect-secrets-docker-ci -v $(pwd):/opt detect-secrets-docker-ci
 ```
 
